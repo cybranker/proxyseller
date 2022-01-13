@@ -20,6 +20,22 @@ const PostsScreen = (props) => {
   );
 };
 
+PostsScreen.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired
+    }).isRequired
+  }).isRequired,
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      userId: PropTypes.number.isRequired,
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired
+};
+
 const mapStateToProps = (state) => ({
   posts: state['DATA'].posts,
 });

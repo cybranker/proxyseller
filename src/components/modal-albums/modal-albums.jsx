@@ -27,6 +27,17 @@ const ModalAlbums = (props) => {
   );
 };
 
+ModalAlbums.propTypes = {
+  id: PropTypes.number.isRequired,
+  albums: PropTypes.arrayOf(
+    PropTypes.shape({
+      userId: PropTypes.number.isRequired,
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired
+};
+
 const mapStateToProps = (state) => ({
   albums: state['DATA'].albums,
 });
